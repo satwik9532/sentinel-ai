@@ -6,6 +6,9 @@ from app.database import SessionLocal
 
 
 def get_db() -> Generator[Session, None, None]:
+    """
+    Database dependency.
+    """
 
     db = SessionLocal()
 

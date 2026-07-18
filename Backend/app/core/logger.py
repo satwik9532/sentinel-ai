@@ -1,5 +1,5 @@
-from pathlib import Path
 import sys
+from pathlib import Path
 
 from loguru import logger
 
@@ -12,8 +12,8 @@ logger.add(
     sys.stdout,
     level="INFO",
     format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | "
-           "<level>{level}</level> | "
-           "{message}",
+    "<level>{level}</level> | "
+    "{message}",
 )
 
 logger.add(
