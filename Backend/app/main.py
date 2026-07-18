@@ -1,19 +1,21 @@
 from fastapi import FastAPI
 
+from app.api.router import api_router
+from app.config import settings
+from app.core.lifespan import lifespan
+
 app = FastAPI(
-title="Sentinel AI",
-version ="1.0.0",
-description="Enterprise Intelligence & Fraud Analytics Platform"
+    title=settings.APP_NAME,
+    version=settings.APP_VERSION,
+    lifespan=lifespan,
 )
+
+app.include_router(api_router)
+
 
 @app.get("/")
 def root():
     return {
-        "message": "Sentinel AI is running."
+        "application": settings.APP_NAME,
+        "version": settings.APP_VERSION,
     }
-@app.get("/health")
-def health_check():
-    return {
-        "status": "healthy"
-    }
-
