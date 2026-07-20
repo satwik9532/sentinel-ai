@@ -18,9 +18,7 @@ class PersonVehicle(Base, TimestampMixin):
 
     id: Mapped[int] = mapped_column(primary_key=True)
 
-    person_id: Mapped[int] = mapped_column(
-        ForeignKey("persons.id", ondelete="CASCADE")
-    )
+    person_id: Mapped[int] = mapped_column(ForeignKey("persons.id", ondelete="CASCADE"))
 
     vehicle_id: Mapped[int] = mapped_column(
         ForeignKey("vehicles.id", ondelete="CASCADE")

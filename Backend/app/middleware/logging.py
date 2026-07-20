@@ -6,9 +6,7 @@ from app.core.logger import logger
 
 
 class LoggingMiddleware(BaseHTTPMiddleware):
-
     async def dispatch(self, request, call_next):
-
         start = time.perf_counter()
 
         response = await call_next(request)

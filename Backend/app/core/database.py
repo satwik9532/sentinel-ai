@@ -15,7 +15,6 @@ def transaction(db: Session):
         db.commit()
 
     except Exception:
-
         db.rollback()
 
         raise

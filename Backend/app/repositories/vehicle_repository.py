@@ -6,7 +6,6 @@ from app.repositories.base import BaseRepository
 
 
 class VehicleRepository(BaseRepository):
-
     def __init__(self, db: Session):
         super().__init__(db)
 
@@ -18,9 +17,7 @@ class VehicleRepository(BaseRepository):
         self,
         registration_number: str,
     ) -> Vehicle | None:
-        stmt = select(Vehicle).where(
-            Vehicle.registration_number == registration_number
-        )
+        stmt = select(Vehicle).where(Vehicle.registration_number == registration_number)
         return self.db.scalar(stmt)
 
     def list(self) -> list[Vehicle]:

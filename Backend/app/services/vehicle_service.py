@@ -16,10 +16,7 @@ class VehicleService:
         self,
         payload: VehicleCreate,
     ) -> Vehicle:
-
-        existing = self.repository.get_by_registration(
-            payload.registration_number
-        )
+        existing = self.repository.get_by_registration(payload.registration_number)
 
         if existing:
             raise ResourceAlreadyExistsException("Vehicle")

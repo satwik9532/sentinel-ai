@@ -7,8 +7,6 @@ from app.core.exceptions import register_exception_handlers
 from app.middleware.logging import LoggingMiddleware
 
 
-
-
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
@@ -19,6 +17,7 @@ app.include_router(api_router)
 app.add_middleware(
     LoggingMiddleware,
 )
+
 
 @app.get("/")
 def root():
